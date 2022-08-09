@@ -27,3 +27,47 @@ def diff21(n):
 
 def near_hundred(n):
   return (abs(100-n)<=10) or (abs(200-n)<=10)
+
+#missing_char
+#Given a non-empty string and an int n, return a new string where the char at index n has been removed. The value of n will be a valid index of a char in the original string (i.e. n will be in the range 0..len(str)-1 inclusive).
+#
+#missing_char('kitten', 1) → 'ktten'
+#missing_char('kitten', 0) → 'itten'
+#missing_char('kitten', 4) → 'kittn'
+
+def missing_char(str, n):
+  return str[0:n]+str[n+1:]
+
+#monkey_trouble
+#We have two monkeys, a and b, and the parameters a_smile and b_smile indicate if each is smiling. We are in trouble if they are both smiling or if neither of them is smiling. Return True if we are in trouble.
+#
+#monkey_trouble(True, True) → True
+#monkey_trouble(False, False) → True
+#monkey_trouble(True, False) → False
+
+def monkey_trouble(a_smile, b_smile):
+  return a_smile == b_smile
+
+#sum_double
+#Given two int values, return their sum. Unless the two values are the same, then return double their sum.
+#
+#sum_double(1, 2) → 3
+#sum_double(3, 2) → 5
+#sum_double(2, 2) → 8
+
+def sum_double(a, b):
+  if a == b:
+    return (a+b)*2
+  else:
+    return a+b
+
+# parrot_trouble
+#We have a loud talking parrot. The "hour" parameter is the current hour time in the range 0..23. We are in trouble if the parrot is talking and the hour is before 7 or after 20. Return True if we are in trouble.
+#
+#parrot_trouble(True, 6) → True
+#parrot_trouble(True, 7) → False
+#parrot_trouble(False, 6) → False
+
+def parrot_trouble(talking, hour):
+  return True if talking and (hour < 7 or hour > 20) else False
+
