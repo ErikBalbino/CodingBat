@@ -71,3 +71,62 @@ def sum_double(a, b):
 def parrot_trouble(talking, hour):
   return True if talking and (hour < 7 or hour > 20) else False
 
+#makes10
+#Given 2 ints, a and b, return True if one if them is 10 or if their sum is 10.
+#
+#makes10(9, 10) → True
+#makes10(9, 9) → False
+#makes10(1, 9) → True
+
+def makes10(a, b):
+  return a == 10 or b == 10 or a+b == 10
+
+#pos_neg
+#Given 2 int values, return True if one is negative and one is positive. Except if the parameter "negative" is True, then return True only if both are negative.
+#
+#pos_neg(1, -1, False) → True
+#pos_neg(-1, 1, False) → True
+#pos_neg(-4, -5, True) → True
+
+def pos_neg(a, b, negative):
+  if negative:
+    return (a<0) and (b<0)
+  else:
+    return (a < 0 and not b < 0) or (not a < 0 and b < 0)
+
+#not_string
+#Given a string, return a new string where "not " has been added to the front. However, if the string already begins with "not", return the string unchanged.
+#
+#not_string('candy') → 'not candy'
+#not_string('x') → 'not x'
+#not_string('not bad') → 'not bad'
+
+def not_string(str):
+  return str if str.find('not') == 0 else 'not '+str
+
+#front_back
+#Given a string, return a new string where the first and last chars have been exchanged.
+#
+#front_back('code') → 'eodc'
+#front_back('a') → 'a'
+#front_back('ab') → 'ba'
+
+def front_back(str):
+  if len(str) <= 1:
+    saida = str
+  elif len(str) == 2:
+    saida = str[::-1]
+  else:
+    size = len(str)
+    saida = str[size-1]+str[1:size-1]+str[0]
+  return saida
+
+#front3
+#Given a string, we'll say that the front is the first 3 chars of the string. If the string length is less than 3, the front is whatever is there. Return a new string which is 3 copies of the front.
+#
+#front3('Java') → 'JavJavJav'
+#front3('Chocolate') → 'ChoChoCho'
+#front3('abc') → 'abcabcabc'
+
+def front3(str):
+  return str[0:3]*3
