@@ -199,3 +199,56 @@ public boolean endsLy(String str) {
     return false;
   }
 }
+
+// nTwice
+// Given a string and an int n, return a string made of the first and last n chars from the string. The string length will be at least n.
+// 
+// nTwice("Hello", 2) → "Helo"
+// nTwice("Chocolate", 3) → "Choate"
+// nTwice("Chocolate", 1) → "Ce"
+
+public String nTwice(String str, int n) {
+  return (str.substring(0, n)+str.substring(str.length()-n, str.length()));
+}
+
+// twoChar
+// Given a string and an index, return a string length 2 starting at the given index. If the index is too big or too small to define a string length 2, use the first 2 chars. The string length will be at least 2.
+// 
+// twoChar("java", 0) → "ja"
+// twoChar("java", 2) → "va"
+// twoChar("java", 3) → "ja"
+
+public String twoChar(String str, int index) {
+  if (index+2>str.length() || index<0) {
+    return str.substring(0, 2);
+  }else {
+    return str.substring(index, index+2);
+  }
+}
+
+// middleThree
+// Given a string of odd length, return the string length 3 from its middle, so "Candy" yields "and". The string length will be at least 3.
+// 
+// middleThree("Candy") → "and"
+// middleThree("and") → "and"
+// middleThree("solving") → "lvi"
+
+public String middleThree(String str) {
+  int mid = (int)str.length()/2;
+  return str.substring(mid-1, mid+2);
+}
+
+// hasBad
+// Given a string, return true if "bad" appears starting at index 0 or 1 in the string, such as with "badxxx" or "xbadxx" but not "xxbadxx". The string may be any length, including 0. Note: use .equals() to compare 2 strings.
+// 
+// hasBad("badxx") → true
+// hasBad("xbadxx") → true
+// hasBad("xxbadxx") → false
+
+public boolean hasBad(String str) {
+  if (str.length()>3) {
+    return (str.substring(0, 3).equals("bad") || str.substring(1, 4).equals("bad"));
+  } else {
+    return str.equals("bad");
+  }
+}
