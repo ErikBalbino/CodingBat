@@ -252,3 +252,70 @@ public boolean hasBad(String str) {
     return str.equals("bad");
   }
 }
+
+// atFirst
+// Given a string, return a string length 2 made of its first 2 chars. If the string length is less than 2, use '@' for the missing chars.
+// 
+// atFirst("hello") → "he"
+// atFirst("hi") → "hi"
+// atFirst("h") → "h@"
+
+public String atFirst(String str) {
+  if (str.length()>=2) {
+    return str.substring(0, 2);
+  } else {
+    int t = str.length();
+    for (int i=t; i<2; i++) {
+      str = str+'@';
+    }
+    return str;
+  }
+}
+
+// lastChars
+// Given 2 strings, a and b, return a new string made of the first char of a and the last char of b, so "yo" and "java" yields "ya". If either string is length 0, use '@' for its missing char.
+// 
+// lastChars("last", "chars") → "ls"
+// lastChars("yo", "java") → "ya"
+// lastChars("hi", "") → "h@"
+
+public String lastChars(String a, String b) {
+  String s = "";
+  if (a.length()>0) {s=a.substring(0,1);} else {s="@";}
+  if (b.length()>0) {s=s+b.substring(b.length()-1);} else {s=s+"@";}
+  return s;
+}
+
+// conCat
+// Given two strings, append them together (known as "concatenation") and return the result. However, if the concatenation creates a double-char, then omit one of the chars, so "abc" and "cat" yields "abcat".
+// 
+// conCat("abc", "cat") → "abcat"
+// conCat("dog", "cat") → "dogcat"
+// conCat("abc", "") → "abc"
+
+public String conCat(String a, String b) {
+  if (a.length()<1) {return b;}
+  if (b.length()<1) {return a;}
+  if (a.substring(a.length()-1).equals(b.substring(0, 1))) {
+    return a.substring(0, a.length()-1)+b;
+  } else {
+    return a+b;
+  }
+}
+
+// lastTwo
+// Given a string of any length, return a new string where the last 2 chars, if present, are swapped, so "coding" yields "codign".
+// 
+// lastTwo("coding") → "codign"
+// lastTwo("cat") → "cta"
+// lastTwo("ab") → "ba"
+
+public String lastTwo(String str) {
+  if (str.length()<2) { return str; } else {
+    String a, b;
+    a = str.substring(str.length()-2, str.length()-1);
+    b = str.substring(str.length()-1);
+    return str.substring(0, str.length()-2)+b+a;
+  }
+}
+
