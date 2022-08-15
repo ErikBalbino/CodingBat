@@ -319,3 +319,106 @@ public String lastTwo(String str) {
   }
 }
 
+// seeColor
+// Given a string, if the string begins with "red" or "blue" return that color string, otherwise return the empty string.
+// 
+// seeColor("redxx") → "red"
+// seeColor("xxred") → ""
+// seeColor("blueTimes") → "blue"
+
+public String seeColor(String str) {
+  if (str.indexOf("red")==0 || str.indexOf("blue")==0) {
+    String saida;
+    if (str.indexOf("red")==0) {saida = "red";} else {saida = "blue";}
+    return saida;
+  } else {
+    return "";
+  }
+}
+
+// frontAgain
+// Given a string, return true if the first 2 chars in the string also appear at the end of the string, such as with "edited".
+// 
+// frontAgain("edited") → true
+// frontAgain("edit") → false
+// frontAgain("ed") → true
+
+public boolean frontAgain(String str) {
+  if (str.length()>1) {
+    return str.substring(0, 2).equals(str.substring(str.length()-2, str.length()));
+  } else {
+    return false;
+  }
+}
+
+// minCat
+// Given two strings, append them together (known as "concatenation") and return the result. However, if the strings are different lengths, omit chars from the longer string so it is the same length as the shorter string. So "Hello" and "Hi" yield "loHi". The strings may be any length.
+// 
+// minCat("Hello", "Hi") → "loHi"
+// minCat("Hello", "java") → "ellojava"
+// minCat("java", "Hello") → "javaello"
+
+public String minCat(String a, String b) {
+  if (a.length()>b.length()) {
+    return a.substring(a.length()-b.length(), a.length())+b;
+  } else {
+    return a+b.substring(b.length()-a.length(), b.length());
+  }
+}
+
+// extraFront
+// Given a string, return a new string made of 3 copies of the first 2 chars of the original string. The string may be any length. If there are fewer than 2 chars, use whatever is there.
+// 
+// extraFront("Hello") → "HeHeHe"
+// extraFront("ab") → "ababab"
+// extraFront("H") → "HHH"
+
+public String extraFront(String str) {
+  if (str.length()>1) {
+    return str.substring(0, 2)+str.substring(0, 2)+str.substring(0, 2);
+  } else {
+    return str+str+str;
+  }
+}
+
+// without2
+// Given a string, if a length 2 substring appears at both its beginning and end, return a string without the substring at the beginning, so "HelloHe" yields "lloHe". The substring may overlap with itself, so "Hi" yields "". Otherwise, return the original string unchanged.
+// 
+// without2("HelloHe") → "lloHe"
+// without2("HelloHi") → "HelloHi"
+// without2("Hi") → ""
+
+public String without2(String str) {
+  if (str.length()>1) {
+    if (str.indexOf(str.substring(str.length()-2, str.length()))==0) {return str.substring(2);} else {return str;}
+  } else {
+    return str;
+  }
+}
+
+// deFront
+// Given a string, return a version without the first 2 chars. Except keep the first char if it is 'a' and keep the second char if it is 'b'. The string may be any length. Harder than it looks.
+// 
+// deFront("Hello") → "llo"
+// deFront("java") → "va"
+// deFront("away") → "aay"
+
+public String deFront(String str) {
+  String saida = "";
+  for (int i=0; i < str.length(); i++) {
+    if (i==0 && str.indexOf("a")==0) {saida = "a";}
+    if (i==1 && str.indexOf("b", 1)==1) {saida = saida+"b";}
+    if (i>1) {saida = saida+str.substring(2, str.length()); break;}
+  }
+  return saida;
+}
+
+// startWord
+// Given a string and a second "word" string, we'll say that the word matches the string if it appears at the front of the string, except its first char does not need to match exactly. On a match, return the front of the string, or otherwise return the empty string. So, so with the string "hippo" the word "hi" returns "hi" and "xip" returns "hip". The word will be at least length 1.
+// 
+// startWord("hippo", "hi") → "hi"
+// startWord("hippo", "xip") → "hip"
+// startWord("hippo", "i") → "h"
+
+
+
