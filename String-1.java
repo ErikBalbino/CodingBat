@@ -420,5 +420,48 @@ public String deFront(String str) {
 // startWord("hippo", "xip") → "hip"
 // startWord("hippo", "i") → "h"
 
+public String startWord(String str, String word) {
+  if (str.length()>1 && word.length()>1) {
+    if (str.indexOf(word.substring(1, word.length()))==1) {return str.substring(0, word.length());} else {return "";}
+  } else {
+    if (str.length()>=word.length()) {return str.substring(0, word.length());} else {return "";}
+  }
+}
+
+// withoutX
+// Given a string, if the first or last chars are 'x', return the string without those 'x' chars, and otherwise return the string unchanged.
+// 
+// withoutX("xHix") → "Hi"
+// withoutX("xHi") → "Hi"
+// withoutX("Hxix") → "Hxi"
+
+public String withoutX(String str) {
+  if (str.length()>1) {
+    if (str.indexOf("x")==0) {str = str.substring(1, str.length());}
+    if (str.lastIndexOf("x")==str.length()-1) {str = str.substring(0, str.length()-1);}
+    return str;
+  } else {
+    return "";
+  }
+}
+
+// withoutX2
+// Given a string, if one or both of the first 2 chars is 'x', return the string without those 'x' chars, and otherwise return the string unchanged. This is a little harder than it looks.
+// 
+// withoutX2("xHi") → "Hi"
+// withoutX2("Hxi") → "Hi"
+// withoutX2("Hi") → "Hi"
+
+public String withoutX2(String str) {
+  if (str.length()>1) {
+    if (str.substring(0,2).equals("xx")) {return str.substring(2, str.length());} else {
+      if (str.substring(0,1).equals("x")) {return str.substring(1, str.length());}
+      if (str.substring(1,2).equals("x")) {return str.substring(0,1)+str.substring(2,str.length());}
+    }
+    return str;
+  }else {
+    if (str.equals("x")) {return "";} else {return str;}
+  }
+}
 
 
