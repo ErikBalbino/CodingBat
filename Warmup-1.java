@@ -202,3 +202,63 @@ icyHot(2, 120) → false */
 public boolean icyHot(int temp1, int temp2) {
   return (temp1<0 && temp2>100) || (temp1>100 && temp2<0);
 }
+
+// in1020
+
+/* Given 2 int values, return true if either of them is in the range 10..20 inclusive.
+
+in1020(12, 99) → true
+in1020(21, 12) → true
+in1020(8, 99) → false */
+
+public boolean in1020(int a, int b) {
+  return (a > 9 && a < 21 || b > 9 && b < 21);
+}
+
+// hasTeen
+
+/* We'll say that a number is "teen" if it is in the range 13..19 inclusive. Given 3 int values, return true if 1 or more of them are teen.
+
+hasTeen(13, 20, 10) → true
+hasTeen(20, 19, 10) → true
+hasTeen(20, 10, 13) → true */
+
+public boolean hasTeen(int a, int b, int c) {
+  return (a > 12 && a < 20) || (b > 12 && b < 20) || (c > 12 && c < 20);
+}
+
+// loneTeen
+
+/* We'll say that a number is "teen" if it is in the range 13..19 inclusive. Given 2 int values, return true if one or the other is teen, but not both.
+
+loneTeen(13, 99) → true
+loneTeen(21, 19) → true
+loneTeen(13, 13) → false */
+
+public boolean loneTeen(int a, int b) {
+  return !(a > 12 && a < 20) && (b > 12 && b < 20) || (a > 12 && a < 20) && !(b > 12 && b < 20);
+}
+
+// delDel
+
+/* Given a string, if the string "del" appears starting at index 1, return a string where that "del" has been deleted. Otherwise, return the string unchanged.
+
+delDel("adelbc") → "abc"
+delDel("adelHello") → "aHello"
+delDel("adedbc") → "adedbc" */
+
+public String delDel(String str) {
+  if (str.indexOf("del")==1) {return str.replace("del", "");} else {return str;}
+}
+
+// mixStart
+
+/* Return true if the given string begins with "mix", except the 'm' can be anything, so "pix", "9ix" .. all count.
+
+mixStart("mix snacks") → true
+mixStart("pix snacks") → true
+mixStart("piz snacks") → false */
+
+public boolean mixStart(String str) {
+  return (str.indexOf("ix")==1);
+}
