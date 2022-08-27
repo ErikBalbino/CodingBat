@@ -262,3 +262,51 @@ mixStart("piz snacks") → false */
 public boolean mixStart(String str) {
   return (str.indexOf("ix")==1);
 }
+
+// startOz
+
+/* Given a string, return a string made of the first 2 chars (if present), however include first char only if it is 'o' and include the second only if it is 'z', so "ozymandias" yields "oz".
+
+startOz("ozymandias") → "oz"
+startOz("bzoo") → "z"
+startOz("oxx") → "o" */
+
+public String startOz(String str) {
+  if (str.length()>1) {
+    String first = "";
+    String second = "";
+    if (str.indexOf("o")==0) {first = "o";}
+    if (str.substring(1, 2).equals("z")) {second = "z";}
+    return first+second;
+  } else {
+    if (str.equals("o")) {return str;} else {return "";}
+  }
+}
+
+//intMax
+
+/* Given three int values, a b c, return the largest.
+
+intMax(1, 2, 3) → 3
+intMax(1, 3, 2) → 3
+intMax(3, 2, 1) → 3 */
+
+public int intMax(int a, int b, int c) {
+  return Math.max(Math.max(a, b), c);
+}
+
+//close10
+
+/* Given 2 int values, return whichever value is nearest to the value 10, or return 0 in the event of a tie. Note that Math.abs(n) returns the absolute value of a number.
+
+close10(8, 13) → 8
+close10(13, 8) → 8
+close10(13, 7) → 0 */
+
+public int close10(int a, int b) {
+  if (Math.abs(a-10)!=Math.abs(b-10)) {
+    if (a-10<b-10) {return a;} else {return b;}
+  } else {return 0;}
+}
+
+
