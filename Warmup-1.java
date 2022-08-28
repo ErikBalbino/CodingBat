@@ -309,4 +309,51 @@ public int close10(int a, int b) {
   } else {return 0;}
 }
 
+// in3050
+
+/* Given 2 int values, return true if they are both in the range 30..40 inclusive, or they are both in the range 40..50 inclusive.
+
+in3050(30, 31) → true
+in3050(30, 41) → false
+in3050(40, 50) → true */
+
+public boolean in3050(int a, int b) {
+  if (a>29 && a<41 && b>29 && b<41) {return true;} else {
+    if (a>39 && a<51 && b>39 && b<51) {return true;} else {return false;}
+  }
+}
+
+// max1020
+
+/* Given 2 positive int values, return the larger value that is in the range 10..20 inclusive, or return 0 if neither is in that range.
+
+max1020(11, 19) → 19
+max1020(19, 11) → 19
+max1020(11, 9) → 11 */
+
+public int max1020(int a, int b) {
+  if (a>b) {
+    if (a>9 && a<21) {return a;} else {
+      if (b>9 && b<21) {return b;} else {return 0;}
+    }
+  } else {
+    if (b>9 && b<21) {return b;} else {
+      if (a>9 && a<21) {return a;} else {return 0;}
+    }
+  }
+}
+
+// stringE
+
+/* Return true if the given string contains between 1 and 3 'e' chars.
+
+stringE("Hello") → true
+stringE("Heelle") → true
+stringE("Heelele") → false */
+
+public boolean stringE(String str) {
+  int without_e = str.replace("e", "").length();
+  if (str.length()-without_e>0 && str.length()-without_e<4) {return true;} else {return false;}
+}
+
 

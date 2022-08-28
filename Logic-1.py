@@ -30,4 +30,55 @@ def date_fashion(you, date):
 # squirrel_play(95, False) → False
 # squirrel_play(95, True) → True
 
+def squirrel_play(temp, is_summer):
+  if is_summer:
+    return temp>59 and temp<101
+  else:
+    return temp>59 and temp<91
 
+# caught_speeding
+
+# You are driving a little too fast, and a police officer stops you. Write code to compute the result, encoded as an int value: 0=no ticket, 1=small ticket, 2=big ticket. If speed is 60 or less, the result is 0. If speed is between 61 and 80 inclusive, the result is 1. If speed is 81 or more, the result is 2. Unless it is your birthday -- on that day, your speed can be 5 higher in all cases.
+
+# caught_speeding(60, False) → 0
+# caught_speeding(65, False) → 1
+# caught_speeding(65, True) → 0
+
+def caught_speeding(speed, is_birthday):
+  ticket = 0
+  if is_birthday:
+    ticket = 1 if speed>65 and speed<86 else ticket
+    ticket = 2 if speed>85 else ticket
+    return ticket
+  else:
+    ticket = 1 if speed>60 and speed<81 else ticket
+    ticket = 2 if speed>80 else ticket
+    return ticket
+
+# sorta_sum
+
+# Given 2 ints, a and b, return their sum. However, sums in the range 10..19 inclusive, are forbidden, so in that case just return 20.
+
+# sorta_sum(3, 4) → 7
+# sorta_sum(9, 4) → 20
+# sorta_sum(10, 11) → 21
+
+def sorta_sum(a, b):
+  if a+b>9 and a+b<20:
+    return 20
+  else:
+    return a+b
+
+# alarm_clock
+
+# Given a day of the week encoded as 0=Sun, 1=Mon, 2=Tue, ...6=Sat, and a boolean indicating if we are on vacation, return a string of the form "7:00" indicating when the alarm clock should ring. Weekdays, the alarm should be "7:00" and on the weekend it should be "10:00". Unless we are on vacation -- then on weekdays it should be "10:00" and weekends it should be "off".
+
+# alarm_clock(1, False) → '7:00'
+# alarm_clock(5, False) → '7:00'
+# alarm_clock(0, False) → '10:00'
+
+def alarm_clock(day, vacation):
+  if vacation:
+    return "10:00" if day>0 and day<6 else "off"
+  else:
+    return "7:00" if day>0 and day<6 else "10:00"
